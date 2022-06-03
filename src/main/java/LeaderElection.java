@@ -43,10 +43,10 @@ public class LeaderElection implements Watcher {
             Collections.sort(children);
             String smallestChild = children.get(0);
             if (smallestChild.equals(currentZnodeName)) {
-                System.out.println("I am the leader");
+                System.out.println("I am the leader.");
                 return;
             } else {
-                System.out.println("I am not the leader");
+                System.out.println("I am not the leader.");
                 int predecessorIndex = Collections.binarySearch(children, currentZnodeName) - 1;
                 predecessorZnodeName = children.get(predecessorIndex);
                 predecessorStat = zooKeeper.exists(ELECTION_NAMESPACE + "/" + predecessorZnodeName, this);
